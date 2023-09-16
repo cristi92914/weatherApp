@@ -1,14 +1,16 @@
-import { getLocation, latLong } from "./geolocation.js";
+import { getLocation } from "./geolocation.js";
 const API_KEY = "76a975919911e029ec5e72a082e27fa5";
 
 const getUrlCity = (city, units = "metric") => {
   return `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`;
 };
 
-const getUrlPosition = (position, units = "metric") => {
-  const lat = position.lat;
-  const lon = position.lon;
-  return `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${API_key}`;
+const getUrlPosition = (pos, units = "metric") => {
+  const position = pos.coords;
+  console.log(position);
+  const lat = position.latitude;
+  const lon = position.longitude;
+  return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${units}`;
 };
 
 const getMetric = (units) => {
@@ -24,7 +26,7 @@ const getJsonCity = async (city, units) => {
 
 export const getJsonWeatherCity = async (city, units = "metric") => {
   const json = await getJsonCity(city, units);
-  const metric = getMetric();
+  const metric = getMetric(units);
 
   return { ...json, units: metric };
 };
@@ -37,9 +39,8 @@ const getJsonPosition = async (position, units) => {
 };
 
 export const getJsonWeatherPosition = async (position, units = "metric") => {
-  //   const getLocation(getJsonPosition);
-  const json = await getJsonPosition(city, units);
-  const metric = getMetric();
+  const json = await getJsonPosition(position, units);
+  const metric = getMetric(units);
 
   return { ...json, units: metric };
 };

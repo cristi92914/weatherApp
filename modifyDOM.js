@@ -3,6 +3,10 @@ const zoneCity = document.getElementById("zone__city");
 const descriptionP = document.getElementById("description");
 const metric = document.getElementById("temperature__metric");
 
+export const getZoneP = () => {
+  return zoneCity;
+};
+
 export const setMetric = (units) => {
   metric.textContent = units;
 };

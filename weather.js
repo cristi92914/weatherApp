@@ -7,7 +7,7 @@ const getUrlCity = (city, units = "metric") => {
 
 const getUrlPosition = (pos, units = "metric") => {
   const position = pos.coords;
-  console.log(position);
+  // console.log(position);
   const lat = position.latitude;
   const lon = position.longitude;
   return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${units}`;

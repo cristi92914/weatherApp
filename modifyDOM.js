@@ -14,20 +14,11 @@ export const setMetric = (units) => {
 
 const setIcon = (temp) => {
   if (temp > 20) {
-    // high
-    // icon.style = ;
-    icon.textContent = "high";
     icon.src = "./png/high_temperature.png";
   } else if (temp > 10) {
-    icon.textContent = "medium";
     icon.src = "./png/medium_temperature.webp";
-    // icon.style.backgroundImage = url("high temperature.png");
-    // medium
   } else {
-    icon.textContent = "low";
     icon.src = "./png/low_temperature.webp";
-    // icon.style.backgroundImage = url("high temperature.png");
-    // low
   }
 };
 

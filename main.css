@@ -36,4 +36,9 @@ body {
 body {
   background: linear-gradient(rgba(0, 0, 255, 0.69), rgb(113, 113, 150));
   font-family: sans-serif;
+  font-size: 1.3rem;
+}
+
+#temperature__value {
+  font-size: 2rem;
 }
